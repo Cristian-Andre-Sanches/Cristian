@@ -17,8 +17,10 @@ int main()
     int TotalMinutos, horas, minutos;
     printf("Digite o total de minutos:\n");
     scanf("%d",&TotalMinutos);
+
     horas=0;
     minutos=0;
+
     Conversao(&horas,&minutos,TotalMinutos);
     printf("Horas %i:%i",horas,minutos);
     return 0;
