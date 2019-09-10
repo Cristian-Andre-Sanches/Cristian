@@ -51,6 +51,21 @@ void Enquewe(FilaDinam *Q,Objeto x)
     }
     Q->Cont++;
 }
+Objeto Dequewe(FilaDinam *Q){
+    if(EstaVazia(Q)){
+        printf("esta vazia");
+    }else
+    {
+        PtrNofila aux;
+        aux = Q->inicio;
+        Q->inicio= Q->inicio->proximo;
+        Objeto Rez= aux->obj;
+        free(aux);
+        Q->Cont--;
+        return(Rez);
+    }
+}
+
 int main()
 {
     FilaDinam fila;
