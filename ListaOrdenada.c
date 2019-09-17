@@ -31,24 +31,39 @@ bool EstaVazia(Lista*Lista)
 {
     return(Lista->tamanho==0);
 }
-void Inserir(Lista*Lista,Objeto x){
-PtrNolista Novo;
+void Inserir(Lista*Lista,Objeto x)
+{
+    PtrNolista Novo;
     Novo=(PtrNolista*)malloc(sizeof(NoLista));
     Novo->obj=x;
-    if(EstaVazia(Lista)==true||x.chave<Lista->inicio->obj.chave){
-       Novo->prox ==NULL;   //Novo->prox=Lista->inicio;
-       Lista->inicio=Novo;
-
-    }else{
+    if(EstaVazia(Lista)==true||x.chave<Lista->inicio->obj.chave)
+    {
+        Novo->prox ==NULL;   //Novo->prox=Lista->inicio;
+        Lista->inicio=Novo;
+    }
+    else
+    {
         PtrNolista Aux;
         Aux=Lista->inicio;
-        while(Aux->prox!=NULL && x.chave> Aux->prox->obj.chave){
+        while(Aux->prox!=NULL && x.chave> Aux->prox->obj.chave)
+        {
             Aux=Aux->prox;
-
-        }Novo->prox=Aux->prox;
-            Aux->prox=Novo;
+        }
+        Novo->prox=Aux->prox;
+        Aux->prox=Novo;
     }
     Lista->tamanho++;
+}
+bool Pesquisar(Lista*Lista,Objeto X)
+{
+    PtrNolista Aux;
+    for(Aux=Lista->inicio;Aux!=NULL;Aux=Aux->prox)
+    {
+        if(EstaVazia(Lista))
+            return true;
+        return false;
+    }
+
 }
 int main()
 {
