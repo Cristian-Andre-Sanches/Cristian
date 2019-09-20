@@ -64,7 +64,7 @@ bool Pesquisar(Lista*Lista,int x)
     while(Aux!=NULL && x> Aux->obj.chave)
     {
         Aux = Aux->prox;
-        if(Aux ==NULL||Aux->obj.chave >x)
+        if(Aux == NULL||Aux->obj.chave >x)
         {
             return false;
         }
@@ -73,6 +73,35 @@ bool Pesquisar(Lista*Lista,int x)
             return true;
         }
     }
+}
+void Remove(Lista*Lista,int key,Objeto *x)
+{
+    if(EstaVazia(Lista)==0 || key < Lista->inicio)
+    {
+        return false;
+    }
+    if(key == Lista->inicio)
+    {
+        Lista->inicio = Lista->inicio->prox;
+        Lista->tamanho++;
+    }
+    else
+    {
+        PtrNolista Aux = Lista->inicio;
+        for(Aux =Lista->inicio; Aux->prox->prox !=NULL; Aux= Aux->prox)
+        {
+            PtrNolista remove = Aux->prox;
+            (*x) = remove->obj;
+            Aux->prox=NULL;
+            free(remove);
+            printf("Elemento revovido: %d\n",(*x).chave);
+            Lista->tamanho--;
+            return(x->chave);
+
+        }
+    }else{
+        return false;
+        }
 
 }
 int main()
