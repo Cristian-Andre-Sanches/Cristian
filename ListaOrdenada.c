@@ -54,19 +54,28 @@ void Inserir(Lista*Lista,Objeto x)
     }
     Lista->tamanho++;
 }
-bool Pesquisar(Lista*Lista,Objeto X)
+bool Pesquisar(Lista*Lista,int x)
 {
-    PtrNolista Aux;
-    for(Aux=Lista->inicio;Aux!=NULL;Aux=Aux->prox)
+    if(EstaVazia(Lista))
     {
-        if(EstaVazia(Lista))
-            return true;
         return false;
+    }
+    PtrNolista Aux = Lista->inicio;
+    while(Aux!=NULL && x> Aux->obj.chave)
+    {
+        Aux = Aux->prox;
+        if(Aux ==NULL||Aux->obj.chave >x)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
 }
 int main()
 {
-
     return 0;
 }
